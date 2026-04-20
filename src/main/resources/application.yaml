@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: event-processor
+  config:
+    import: optional:configserver:http://config-service:8888
