@@ -2,7 +2,7 @@ package com.swe.project.eventprocessor.model;
 
 import java.time.LocalDateTime;
 
-public class TopicCompletedEvent {
+public class TopicCompletedAggregateRequest {
 
     private String learnerId;
     private String topicId;
@@ -10,7 +10,19 @@ public class TopicCompletedEvent {
     private int totalLabels;
     private LocalDateTime completedAt;
 
-    public TopicCompletedEvent() {
+    public TopicCompletedAggregateRequest() {
+    }
+
+    public TopicCompletedAggregateRequest(String learnerId,
+                                          String topicId,
+                                          int clickedCount,
+                                          int totalLabels,
+                                          LocalDateTime completedAt) {
+        this.learnerId = learnerId;
+        this.topicId = topicId;
+        this.clickedCount = clickedCount;
+        this.totalLabels = totalLabels;
+        this.completedAt = completedAt;
     }
 
     public String getLearnerId() {
