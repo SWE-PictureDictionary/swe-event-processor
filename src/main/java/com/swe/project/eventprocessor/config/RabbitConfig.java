@@ -15,6 +15,7 @@ public class RabbitConfig {
     public static final String TOPIC_COMPLETED_ROUTING_KEY = "completed.#";
 
     public static final String PROGRESS_UPDATED_EXCHANGE = "progress-updated-exchange";
+    public static final String PROGRESS_UPDATED_QUEUE = "progress-updated";
     public static final String PROGRESS_UPDATED_ROUTING_KEY = "progress.updated";
 
     @Bean
@@ -34,6 +35,11 @@ public class RabbitConfig {
                 .bind(topicCompletedQueue)
                 .to(topicCompletedExchange)
                 .with(TOPIC_COMPLETED_ROUTING_KEY);
+    }
+
+    @Bean
+    public Queue progressUpdatedQueue() {
+        return new Queue(PROGRESS_UPDATED_QUEUE, true);
     }
 
     @Bean
